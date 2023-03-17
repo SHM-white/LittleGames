@@ -3,6 +3,8 @@
 
 #include "pch.h"
 #include "MainWindow.xaml.h"
+#include <winrt/Microsoft.UI.Xaml.h>
+
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #endif
@@ -18,6 +20,11 @@ namespace winrt::LittleGame_SmartestMen::implementation
     MainWindow::MainWindow()
     {
         InitializeComponent();
+
+        recoTimer = DispatcherTimer();
+        recoTimer.Interval(std::chrono::milliseconds{ 500 });
+        auto registrationtoken = recoTimer.Tick({ this, &MainWindow::OnTick });
+        recoTimer.Start();
     }
 
     int32_t MainWindow::MyProperty()
@@ -28,6 +35,10 @@ namespace winrt::LittleGame_SmartestMen::implementation
     void MainWindow::MyProperty(int32_t /* value */)
     {
         throw hresult_not_implemented();
+    }
+    void MainWindow::OnTick(winrt::Windows::Foundation::IInspectable const& sender, Windows::Foundation::IInspectable const& e)
+    {
+
     }
 
     

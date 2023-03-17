@@ -10,10 +10,11 @@ namespace winrt::LittleGame_SmartestMen::implementation
     struct MainWindow : MainWindowT<MainWindow>
     {
         MainWindow();
+        DispatcherTimer recoTimer;
 
         int32_t MyProperty();
         void MyProperty(int32_t value);
-
+        void OnTick(winrt::Windows::Foundation::IInspectable const& sender, Windows::Foundation::IInspectable const& e);
         void buttonYes_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
         void buttonNo_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
     };
