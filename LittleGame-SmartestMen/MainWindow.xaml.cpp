@@ -20,9 +20,10 @@ namespace winrt::LittleGame_SmartestMen::implementation
     MainWindow::MainWindow()
     {
         InitializeComponent();
+        DispatcherTimer recoTimer;
 
         recoTimer = DispatcherTimer();
-        recoTimer.Interval(std::chrono::milliseconds{ 500 });
+        recoTimer.Interval(std::chrono::milliseconds{ 50 });
         auto registrationtoken = recoTimer.Tick({ this, &MainWindow::OnTick });
         recoTimer.Start();
     }
@@ -30,6 +31,16 @@ namespace winrt::LittleGame_SmartestMen::implementation
     int32_t MainWindow::MyProperty()
     {
         throw hresult_not_implemented();
+    }
+
+    void MainWindow::Update()
+    {
+        //timeCounter().ContentStart(box_value(std::to_string(question.TickRun(50))));
+    }
+
+    void MainWindow::endGame()
+    {
+        
     }
 
     void MainWindow::MyProperty(int32_t /* value */)
@@ -47,7 +58,9 @@ namespace winrt::LittleGame_SmartestMen::implementation
 
 void winrt::LittleGame_SmartestMen::implementation::MainWindow::buttonYes_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
 {
-
+    if (question.TickRun(50)) {
+        question.isCorrect(true);
+    }
 }
 
 

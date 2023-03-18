@@ -5,14 +5,21 @@
 
 #include "MainWindow.g.h"
 
+#include <microsoft.ui.xaml.window.h>
+#include "Question.h"
+
 namespace winrt::LittleGame_SmartestMen::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
         MainWindow();
-        DispatcherTimer recoTimer;
+        
+        int currentScore{ 0 };
+        Question question{ 9 };
 
         int32_t MyProperty();
+        void Update();
+        void endGame();
         void MyProperty(int32_t value);
         void OnTick(winrt::Windows::Foundation::IInspectable const& sender, Windows::Foundation::IInspectable const& e);
         void buttonYes_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
