@@ -14,10 +14,12 @@ namespace winrt::LittleGame_SmartestMen::implementation
     {
         MainWindow();
         
+        int highestScore{ 0 };
         int currentScore{ 0 };
         Question question{ 9 };
 
         int32_t MyProperty();
+        int HighestScore(int score);
         void Update();
         void endGame();
         void MyProperty(int32_t value);

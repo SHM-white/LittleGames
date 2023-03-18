@@ -15,7 +15,7 @@
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock x:Name="score"   HorizontalAlignment="Center"   FontSize="40"       >分数</TextBlock>
         <TextBlock x:Name="timeCounter"   HorizontalAlignment="Center"   FontSize="40"       >剩余时间</TextBlock>
-        <TextBlock x:Name="question"      HorizontalAlignment="Center"   FontSize="40"       >question</TextBlock>
+        <TextBlock x:Name="questionBox"      HorizontalAlignment="Center"   FontSize="40"       >question</TextBlock>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="buttonYes" Click="buttonYes_Click"  Width="200"     Height="40"       >正确</Button>

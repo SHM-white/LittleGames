@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "MainWindow.xaml.h"
 #include <winrt/Microsoft.UI.Xaml.h>
+#include <fstream>
 
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
@@ -33,14 +34,34 @@ namespace winrt::LittleGame_SmartestMen::implementation
         throw hresult_not_implemented();
     }
 
+    int MainWindow::HighestScore(int score)
+    {
+        std::fstream file;
+        file.open("score.txt", std::ios::in);
+        static int highestInHistory;
+        std::string in;
+        std::getline(file, in);
+        file.close();
+        highestInHistory = max(highestInHistory, score);
+        highestInHistory = max(atoi(in.c_str()), highestInHistory);
+        file.open("score.txt", std::ios::out | std::ios::trunc);
+        file << std::to_string(score);
+        file.close();
+        return highestInHistory;
+    }
+
     void MainWindow::Update()
     {
-        //timeCounter().ContentStart(box_value(std::to_string(question.TickRun(50))));
+        timeCounter().Text(to_hstring(question.TickRun(0)));
+        score().Text(to_hstring(currentScore));
+        highestScoreInHistory().Text(to_hstring(HighestScore(currentScore)));
     }
 
     void MainWindow::endGame()
     {
-        
+        questionBox().Text(to_hstring("游戏结束"));
+        currentScore = 0;
+        Update();
     }
 
     void MainWindow::MyProperty(int32_t /* value */)
@@ -49,7 +70,10 @@ namespace winrt::LittleGame_SmartestMen::implementation
     }
     void MainWindow::OnTick(winrt::Windows::Foundation::IInspectable const& sender, Windows::Foundation::IInspectable const& e)
     {
-
+        if (!question.TickRun(50)) {
+            endGame();
+        }
+        Update();
     }
 
     
@@ -58,13 +82,40 @@ namespace winrt::LittleGame_SmartestMen::implementation
 
 void winrt::LittleGame_SmartestMen::implementation::MainWindow::buttonYes_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
 {
-    if (question.TickRun(50)) {
-        question.isCorrect(true);
+    if (question.TickRun(0)&&question.isCorrect(true)) {
+        currentScore += question.m_score;
+        question.newQuestion();
+        questionBox().Text(to_hstring(question.getQuestion()));
+        Update();
+    }
+    else if (!question.TickRun(0)){
+        question.newQuestion();
+        questionBox().Text(to_hstring(question.getQuestion()));
+        Update();
+    }
+    else {
+        question.TickRun(100000);
+        endGame();
     }
 }
 
 
 void winrt::LittleGame_SmartestMen::implementation::MainWindow::buttonNo_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
 {
+    if (question.TickRun(0) && question.isCorrect(false)) {
+        currentScore += question.m_score;
+        question.newQuestion();
+        questionBox().Text(to_hstring(question.getQuestion()));
+        Update();
+    }
+    else if (!question.TickRun(0)) {
+        question.newQuestion();
+        questionBox().Text(to_hstring(question.getQuestion()));
+        Update();
+    }
+    else {
+        question.TickRun(100000);
+        endGame();
+    }
 
 }

@@ -5,7 +5,7 @@
 std::string Question::getQuestion()
 {
     std::string first{ m_firstNumber < 0 ? std::format("({})",m_firstNumber):std::format("{}",m_firstNumber) };
-    std::string second{ m_firstNumber < 0 ? std::format("({})",m_secondNumber) : std::format("{}",m_secondNumber) };
+    std::string second{ m_secondNumber < 0 ? std::format("({})",m_secondNumber) : std::format("{}",m_secondNumber) };
     std::string operate;
     switch (op)
     {
@@ -30,8 +30,10 @@ std::string Question::getQuestion()
 
 int Question::TickRun(int tick)
 {
-    m_leftTime -= tick;
-    return (unsigned int)m_leftTime;
+    if (m_leftTime) {
+        m_leftTime -= tick;
+    }
+    return max(m_leftTime,0);
 }
 
 bool Question::isCorrect(bool answer)
