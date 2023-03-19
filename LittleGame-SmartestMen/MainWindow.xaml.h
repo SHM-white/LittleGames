@@ -5,6 +5,7 @@
 
 #include "MainWindow.g.h"
 
+#include <windows.storage.h>
 #include <microsoft.ui.xaml.window.h>
 #include "Question.h"
 
@@ -17,6 +18,8 @@ namespace winrt::LittleGame_SmartestMen::implementation
         int highestScore{ 0 };
         int currentScore{ 0 };
         Question question{ 9 };
+        Windows::Storage::ApplicationDataContainer localSettings{
+    Windows::Storage::ApplicationData::Current().LocalSettings() };
 
         int32_t MyProperty();
         int HighestScore(int score);

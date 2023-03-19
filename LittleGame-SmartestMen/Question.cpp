@@ -122,6 +122,7 @@ bool Question::newQuestion()
         m_correctAnswer = m_firstNumber * m_secondNumber;
         break;
     case Question::divide:
+        while (m_secondNumber == 0) { m_secondNumber += 1; }
         m_correctAnswer = m_firstNumber / m_secondNumber;
         if ((m_correctAnswer * m_secondNumber) != m_firstNumber) {
             m_isAnswerCorrect = false;
@@ -131,7 +132,9 @@ bool Question::newQuestion()
         break;
     }
     if (!m_isAnswerCorrect) {
-        m_notCorrectAnswer = m_correctAnswer + (rand() % 10 - 5);
+        do {
+            m_notCorrectAnswer = m_correctAnswer + (rand() % 10 - 5);
+        } while (m_notCorrectAnswer == m_correctAnswer);
     }
     else {
         m_notCorrectAnswer = m_correctAnswer;
