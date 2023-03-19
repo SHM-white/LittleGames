@@ -30,6 +30,7 @@ std::string Question::getQuestion()
 
 int Question::TickRun(int tick)
 {
+    rand();
     if (m_leftTime) {
         m_leftTime -= tick;
     }

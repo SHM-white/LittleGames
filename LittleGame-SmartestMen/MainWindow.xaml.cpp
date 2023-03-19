@@ -36,26 +36,30 @@ namespace winrt::LittleGame_SmartestMen::implementation
 
     int MainWindow::HighestScore(int score)
     {
-        Windows::Storage::ApplicationDataContainer container{
-            localSettings.CreateContainer(L"highestScore", Windows::Storage::ApplicationDataCreateDisposition::Always) 
-        };
-        bool hasContainer{ localSettings.Containers().HasKey(L"highestScore") };
-        bool hasSetting{ false };
+        //Windows::Storage::ApplicationDataContainer localSettings{ Windows::Storage::ApplicationData::Current().LocalSettings()};
+        //auto values{ localSettings.Values()};
         static int highestInHistory;
 
-        if (hasContainer)
-        {
-            auto values{ localSettings.Containers().Lookup(L"highestScore").Values() };
-            hasSetting = values.HasKey(L"score");
-            highestInHistory = max(atoi(), highestInHistory);
+        //
+        //// Read data from a simple setting.
+        //winrt::hstring value{ winrt::unbox_value<winrt::hstring>(values.Lookup(L"exampleSetting")) };
+        //highestInHistory = max(atoi((char*)value.c_str()), highestInHistory);
 
-        }
+        //Windows::Storage::ApplicationDataContainer container{
+        //    localSettings.CreateContainer(L"highestScore", Windows::Storage::ApplicationDataCreateDisposition::Always) 
+        //};
+        //bool hasContainer{ localSettings.Containers().HasKey(L"highestScore") };
+        //bool hasSetting{ false };
+
+        //if (hasContainer)
+        //{
+        //    auto values{ localSettings.Containers().Lookup(L"highestScore").Values() };
+        //    hasSetting = values.HasKey(L"score");
+
+        //}
         highestInHistory = max(highestInHistory, score);
-        if (localSettings.Containers().HasKey(L"highestScore"))
-        {
-            auto values{ localSettings.Containers().Lookup(L"highestScore").Values() };
-            values.Insert(L"score", winrt::box_value(highestInHistory));
-        }
+        //values.Insert(L"score", Windows::Foundation::PropertyValue::CreateString(to_hstring(highestInHistory)));
+
         return highestInHistory;
     }
 
