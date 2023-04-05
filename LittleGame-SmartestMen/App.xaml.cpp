@@ -4,7 +4,7 @@
 #include "pch.h"
 
 #include "App.xaml.h"
-#include "HomePage.h"
+#include "Home.xaml.h"
 #include "MainWindow.xaml.h"
 
 using namespace winrt;
@@ -30,7 +30,7 @@ App::App()
 
     recoTimer = DispatcherTimer();
     recoTimer.Interval(std::chrono::milliseconds{ 50 });
-    auto registrationtoken = recoTimer.Tick({ this, &HomePage::OnTick });
+    auto registrationtoken = recoTimer.Tick({ this, &Home::OnTick });
     recoTimer.Start();*/
     window.Activate();
 #if defined _DEBUG && !defined DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION
@@ -83,7 +83,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const&)
 
     if (!rootFrame.Content())
     {
-        rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::HomePage>());
+        rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::Home>());
     }
     
 }

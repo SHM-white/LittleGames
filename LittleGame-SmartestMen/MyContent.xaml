@@ -2,7 +2,7 @@
 <!-- Licensed under the MIT License. -->
 
 <Page
-    x:Class="LittleGame_SmartestMen.SettingsPage"
+    x:Class="LittleGame_SmartestMen.MyContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LittleGame_SmartestMen"

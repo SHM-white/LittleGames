@@ -4,9 +4,9 @@
 namespace LittleGame_SmartestMen
 {
     [default_interface]
-    runtimeclass SettingsPage : Microsoft.UI.Xaml.Controls.Page
+    runtimeclass Home : Microsoft.UI.Xaml.Controls.Page
     {
-        SettingsPage();
+        Home();
         Int32 MyProperty;
     }
 }

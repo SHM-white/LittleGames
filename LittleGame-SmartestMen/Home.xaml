@@ -1,0 +1,25 @@
+﻿<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="LittleGame_SmartestMen.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LittleGame_SmartestMen"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock x:Name="score"   HorizontalAlignment="Center"   FontSize="40"       >分数</TextBlock>
+        <TextBlock x:Name="timeCounter"   HorizontalAlignment="Center"   FontSize="40"       >剩余时间</TextBlock>
+        <TextBlock x:Name="questionBox"      HorizontalAlignment="Center"   FontSize="40"       >question</TextBlock>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="buttonYes" Click="buttonYes_Click"  Width="200"     Height="40"       >正确</Button>
+            <Button x:Name="buttonNo" Click="buttonNo_Click"    Width="200"     Height="40"       >错误</Button>
+        </StackPanel>
+
+        <TextBlock x:Name="highestScoreInHistory" HorizontalAlignment="Center"   FontSize="40" >历史最高分</TextBlock>
+    </StackPanel>
+</Page>

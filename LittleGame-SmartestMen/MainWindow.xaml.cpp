@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include "MainWindow.xaml.h"
-#include "HomePage.h"
+#include "Home.xaml.h"
 #include <winrt/Microsoft.UI.Xaml.h>
 #include <fstream>
 
@@ -24,7 +24,7 @@ namespace winrt::LittleGame_SmartestMen::implementation
         InitializeComponent();
 
         m_pages.push_back(std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>
-            (L"home", winrt::xaml_typename<LittleGame_SmartestMen::HomePage>()));
+            (L"home", winrt::xaml_typename<LittleGame_SmartestMen::Home>()));
         
     }
 
@@ -49,7 +49,7 @@ namespace winrt::LittleGame_SmartestMen::implementation
         throw winrt::hresult_error(
             E_FAIL, winrt::hstring(L"Failed to load Page ") + args.SourcePageType().Name);
     }
-    void MainWindow::NavView_Loaded(Windows::Foundation::IInspectable const&, Windows::UI::Xaml::RoutedEventArgs const&)
+    void MainWindow::NavView_Loaded(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const & )
     {
         // You can also add items in code.
         NavView().MenuItems().Append(muxc::NavigationViewItemSeparator());
@@ -60,7 +60,7 @@ namespace winrt::LittleGame_SmartestMen::implementation
         NavView().MenuItems().Append(navigationViewItem);
         m_pages.push_back(
             std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>(
-                L"content", winrt::xaml_typename<LittleGame_SmartestMen::MyContentPage>()));
+                L"content", winrt::xaml_typename<LittleGame_SmartestMen::MyContent>()));
 
         // Add handler for ContentFrame navigation.
         ContentFrame().Navigated({ this, &MainWindow::On_Navigated });

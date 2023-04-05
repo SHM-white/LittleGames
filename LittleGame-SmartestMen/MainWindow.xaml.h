@@ -32,8 +32,7 @@ namespace winrt::LittleGame_SmartestMen::implementation
             Windows::Foundation::IInspectable const& /* sender */,
             Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const& args);
         void NavView_Loaded(
-            Windows::Foundation::IInspectable const& /* sender */,
-            Windows::UI::Xaml::RoutedEventArgs const& /* args */);
+            Windows::Foundation::IInspectable const& /* sender */, Microsoft::UI::Xaml::RoutedEventArgs const &  /* args */);
         void NavView_ItemInvoked(
             Windows::Foundation::IInspectable const& /* sender */, muxc::NavigationViewItemInvokedEventArgs const & args);
 

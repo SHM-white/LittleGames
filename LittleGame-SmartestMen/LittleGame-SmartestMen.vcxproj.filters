@@ -5,8 +5,8 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml" />
-    <Page Include="HomePage.xaml" />
-    <Page Include="MyContentPage.xaml" />
+    <Page Include="Home.xaml" />
+    <Page Include="MyContent.xaml" />
     <Page Include="SettingsPage.xaml" />
   </ItemGroup>
   <ItemGroup>

@@ -123,12 +123,12 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HomePage.h">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <ClInclude Include="Home.xaml.h">
+      <DependentUpon>Home.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="MyContentPage.h">
-      <DependentUpon>MyContentPage.xaml</DependentUpon>
+    <ClInclude Include="MyContent.xaml.h">
+      <DependentUpon>MyContent.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -139,18 +139,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="Question.h" />
-    <ClInclude Include="SettingsPage.h">
+    <ClInclude Include="SettingsPage.xaml.h">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
-    <Page Include="HomePage.xaml">
+    <Page Include="Home.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml" />
-    <Page Include="MyContentPage.xaml">
+    <Page Include="MyContent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SettingsPage.xaml">
@@ -158,12 +158,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HomePage.cpp">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <ClCompile Include="Home.xaml.cpp">
+      <DependentUpon>Home.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
-    <ClCompile Include="MyContentPage.cpp">
-      <DependentUpon>MyContentPage.xaml</DependentUpon>
+    <ClCompile Include="MyContent.xaml.cpp">
+      <DependentUpon>MyContent.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="pch.cpp">
@@ -177,7 +177,7 @@
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Question.cpp" />
-    <ClCompile Include="SettingsPage.cpp">
+    <ClCompile Include="SettingsPage.xaml.cpp">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
@@ -187,16 +187,16 @@
       <SubType>Code</SubType>
       <DependentUpon>App.xaml</DependentUpon>
     </Midl>
-    <Midl Include="HomePage.idl">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Midl Include="Home.idl">
+      <DependentUpon>Home.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
     <Midl Include="MainWindow.idl">
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Midl>
-    <Midl Include="MyContentPage.idl">
-      <DependentUpon>MyContentPage.xaml</DependentUpon>
+    <Midl Include="MyContent.idl">
+      <DependentUpon>MyContent.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
     <Midl Include="SettingsPage.idl">
