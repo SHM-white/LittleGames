@@ -35,36 +35,11 @@ namespace winrt::LittleGame_SmartestMen::implementation
         throw hresult_not_implemented();
     }
 
-    int MainWindow::HighestScore(int score)
-    {
-        
-    }
-
-    void MainWindow::Update()
-    {
-    }
-
-    void MainWindow::endGame()
-    {
-    }
 
     void MainWindow::MyProperty(int32_t /* value */)
     {
         throw hresult_not_implemented();
     }
-    void MainWindow::OnTick(winrt::Windows::Foundation::IInspectable const& sender, Windows::Foundation::IInspectable const& e)
-    {
-    }
 
     
-}
-
-
-void winrt::LittleGame_SmartestMen::implementation::MainWindow::buttonYes_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
-{
-}
-
-
-void winrt::LittleGame_SmartestMen::implementation::MainWindow::buttonNo_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
-{
 }

@@ -1,4 +1,4 @@
-namespace LittleGame_SmartestMen
+﻿namespace LittleGame_SmartestMen
 {
     [default_interface]
     runtimeclass HomePage : Windows.UI.Xaml.Controls.Page

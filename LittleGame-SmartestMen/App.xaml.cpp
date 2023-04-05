@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation and Contributors.
+﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
 #include "pch.h"
@@ -37,6 +37,33 @@ App::App()
 #endif
 }
 
+Microsoft::UI::Xaml::Controls::Frame winrt::LittleGame_SmartestMen::implementation::App::CreateRootFrame()
+{
+    Frame rootFrame{ nullptr };
+    auto content = window.Content();
+    if (content)
+    {
+        rootFrame = content.try_as<Frame>();
+    }
+
+    // Don't repeat app initialization when the Window already has content,
+    // just ensure that the window is active
+    if (!rootFrame)
+    {
+        // Create a Frame to act as the navigation context
+        rootFrame = Frame();
+
+        rootFrame.NavigationFailed({ this, &App::OnNavigationFailed });
+
+        // Place the frame in the current Window
+        window.Content(rootFrame);
+    }
+
+    return rootFrame;
+
+    //return Microsoft::UI::Xaml::Controls::Frame();
+}
+
 /// <summary>
 /// Invoked when the application is launched.
 /// </summary>
@@ -44,5 +71,16 @@ App::App()
 void App::OnLaunched(LaunchActivatedEventArgs const&)
 {
     window = make<MainWindow>();
+    Frame rootFrame = CreateRootFrame();
+
+    if (!rootFrame.Content())
+    {
+        rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::HomePage>());
+    }
     window.Activate();
+}
+
+void winrt::LittleGame_SmartestMen::implementation::App::OnNavigationFailed(IInspectable const&, Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const& e)
+{
+    throw hresult_error(E_FAIL, hstring(L"Failed to load Page ") + e.SourcePageType().Name);
 }

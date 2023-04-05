@@ -1,4 +1,4 @@
-// Copyright (c) Microsoft Corporation and Contributors.
+﻿// Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
 #pragma once
@@ -11,9 +11,14 @@ namespace winrt::LittleGame_SmartestMen::implementation
     {
         App();
 
+        Microsoft::UI::Xaml::Controls::Frame CreateRootFrame();
+
         void OnLaunched(Microsoft::UI::Xaml::LaunchActivatedEventArgs const&);
+        void OnNavigationFailed(IInspectable const&, Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const&);
+
+        static winrt::Microsoft::UI::Xaml::Window Window() { return window; };
 
     private:
-        winrt::Microsoft::UI::Xaml::Window window{ nullptr };
+        winrt::Microsoft::UI::Xaml::Window window;
     };
 }
