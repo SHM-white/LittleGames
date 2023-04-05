@@ -4,6 +4,7 @@
 #include "pch.h"
 
 #include "App.xaml.h"
+#include "HomePage.h"
 #include "MainWindow.xaml.h"
 
 using namespace winrt;
@@ -25,6 +26,13 @@ App::App()
 {
     InitializeComponent();
 
+   /* DispatcherTimer recoTimer;
+
+    recoTimer = DispatcherTimer();
+    recoTimer.Interval(std::chrono::milliseconds{ 50 });
+    auto registrationtoken = recoTimer.Tick({ this, &HomePage::OnTick });
+    recoTimer.Start();*/
+    window.Activate();
 #if defined _DEBUG && !defined DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION
     UnhandledException([this](IInspectable const&, UnhandledExceptionEventArgs const& e)
     {
@@ -77,7 +85,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const&)
     {
         rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::HomePage>());
     }
-    window.Activate();
+    
 }
 
 void winrt::LittleGame_SmartestMen::implementation::App::OnNavigationFailed(IInspectable const&, Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const& e)

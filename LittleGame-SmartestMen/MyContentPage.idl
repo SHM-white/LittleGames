@@ -1,0 +1,9 @@
+namespace LittleGame_SmartestMen
+{
+    [default_interface]
+    runtimeclass MyContentPage : Windows.UI.Xaml.Controls.Page
+    {
+        MyContentPage();
+        Int32 MyProperty;
+    }
+}

@@ -8,5 +8,6 @@ namespace LittleGame_SmartestMen
     {
         MainWindow();
         Int32 MyProperty;
+        Double NavViewCompactModeThresholdWidth{ get; };
     }
 }

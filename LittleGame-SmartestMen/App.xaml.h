@@ -16,7 +16,7 @@ namespace winrt::LittleGame_SmartestMen::implementation
         void OnLaunched(Microsoft::UI::Xaml::LaunchActivatedEventArgs const&);
         void OnNavigationFailed(IInspectable const&, Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const&);
 
-        static winrt::Microsoft::UI::Xaml::Window Window() { return window; };
+        winrt::Microsoft::UI::Xaml::Window Window() { return window; };
 
     private:
         winrt::Microsoft::UI::Xaml::Window window;

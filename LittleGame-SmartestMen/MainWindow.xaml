@@ -12,12 +12,27 @@
     mc:Ignorable="d">
 
     <Grid>
-        <NavigationView x:Name="NavigationViewControl" >
+        <NavigationView x:Name="NavView"
+                         Loaded="NavView_Loaded"
+                         ItemInvoked="NavView_ItemInvoked"
+                         BackRequested="NavView_BackRequested">
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="A" x:Name="A" />
-                <NavigationViewItem Content="B" x:Name="B" />
-                <NavigationViewItem Content="C" x:Name="C" />
+                <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader x:Name="MainPagesHeader"
+                                           Content="Main pages"/>
             </NavigationView.MenuItems>
+
+            <NavigationView.AutoSuggestBox>
+                <!-- See AutoSuggestBox documentation for
+                 more info about how to implement search. -->
+                <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>
+
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed"/>
+            </ScrollViewer>
         </NavigationView>
 
         <VisualStateManager.VisualStateGroups>
@@ -25,11 +40,13 @@
                 <VisualState>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger
-                        MinWindowWidth="{x:Bind NavigationViewControl.CompactModeThresholdWidth}" />
+                        MinWindowWidth="{x:Bind NavViewCompactModeThresholdWidth}"/>
                     </VisualState.StateTriggers>
-
                     <VisualState.Setters>
-                        <Setter Target="NavigationViewControl.PaneDisplayMode" Value="Top"/>
+                        <!-- Remove the next 3 lines for left-only navigation. -->
+
+                        <!-- Leave the next line for left-only navigation. -->
+                        <Setter Target="ContentFrame.Padding" Value="24,0,24,24"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

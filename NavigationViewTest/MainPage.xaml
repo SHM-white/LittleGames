@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Height="NaN" Margin="10,0,0,0" Width="NaN">
+    <Grid>
         <muxc:NavigationView x:Name="NavView"
                          Loaded="NavView_Loaded"
                          ItemInvoked="NavView_ItemInvoked"
