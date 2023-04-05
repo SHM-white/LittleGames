@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using MUXC = Microsoft.UI.Xaml.Controls;
+
 namespace NavigationViewTest
 {
     /// <summary>
