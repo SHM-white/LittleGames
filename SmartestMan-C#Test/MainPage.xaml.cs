@@ -40,9 +40,9 @@ namespace SmartestMan_C_Test
         }
         public void Update()
         {
-            timeCounter.Text= question.TickRun(0);
-            score().Text(to_hstring(currentScore));
-            highestScoreInHistory().Text(to_hstring(HighestScore(currentScore)));
+            timeCounter.Text= question.TickRun(0).ToString();
+            score.Text=currentScore.ToString();
+            highestScoreInHistory.Text=HighestScore(currentScore).ToString();
 
         }
 

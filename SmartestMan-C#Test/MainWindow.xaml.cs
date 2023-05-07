@@ -29,27 +29,9 @@ namespace SmartestMan_C_Test
         public MainWindow()
         {
             this.InitializeComponent();
-            // Get the window handle (HWND) of the current window
-            var windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
-
-            // Set the window location and size
-            var dpi = PInvoke.User32.GetDpiForWindow(windowHandle);
-            var scale = dpi / 96.0;
-            var x = (int)(100 * scale);
-            var y = (int)(100 * scale);
-            var width = (int)(800 * scale);
-            var height = (int)(600 * scale);
-            PInvoke.User32.SetWindowPos(windowHandle, IntPtr.Zero, x, y, width, height, PInvoke.User32.SetWindowPosFlags.SWP_NOZORDER);
-
-            // Disable the window minimize and maximize buttons
-            var style = PInvoke.User32.GetWindowLong(windowHandle, PInvoke.User32.WindowLongIndexFlags.GWL_STYLE);
-            style &= ~(PInvoke.User32.WindowStyles.WS_MINIMIZEBOX | PInvoke.User32.WindowStyles.WS_MAXIMIZEBOX);
-            PInvoke.User32.SetWindowLong(windowHandle, PInvoke.User32.WindowLongIndexFlags.GWL_STYLE, style);
+    
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
-        {
-            myButton.Content = "Clicked";
-        }
+    
     }
 }
