@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SmartestMan-C#Test (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SmartestMan-C#Test (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
