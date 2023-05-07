@@ -83,9 +83,9 @@ void App::OnLaunched(LaunchActivatedEventArgs const&)
 
     if (!rootFrame.Content())
     {
-        rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::Home>());
+        rootFrame.Navigate(xaml_typename<LittleGame_SmartestMen::MainWindow>());
     }
-    
+    window.Activate();
 }
 
 void winrt::LittleGame_SmartestMen::implementation::App::OnNavigationFailed(IInspectable const&, Microsoft::UI::Xaml::Navigation::NavigationFailedEventArgs const& e)

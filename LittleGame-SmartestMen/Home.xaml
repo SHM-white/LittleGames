@@ -10,16 +10,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock x:Name="score"   HorizontalAlignment="Center"   FontSize="40"       >分数</TextBlock>
-        <TextBlock x:Name="timeCounter"   HorizontalAlignment="Center"   FontSize="40"       >剩余时间</TextBlock>
-        <TextBlock x:Name="questionBox"      HorizontalAlignment="Center"   FontSize="40"       >question</TextBlock>
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="score"   HorizontalAlignment="Center"   FontSize="40"       >分数</TextBlock>
+            <TextBlock x:Name="timeCounter"   HorizontalAlignment="Center"   FontSize="40"       >剩余时间</TextBlock>
+            <TextBlock x:Name="questionBox"      HorizontalAlignment="Center"   FontSize="40"       >question</TextBlock>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="buttonYes" Click="buttonYes_Click"  Width="200"     Height="40"       >正确</Button>
-            <Button x:Name="buttonNo" Click="buttonNo_Click"    Width="200"     Height="40"       >错误</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="buttonYes" Click="buttonYes_Click"  Width="200"     Height="40"       >正确</Button>
+                <Button x:Name="buttonNo" Click="buttonNo_Click"    Width="200"     Height="40"       >错误</Button>
+            </StackPanel>
+
+            <TextBlock x:Name="highestScoreInHistory" HorizontalAlignment="Center"   FontSize="40" >历史最高分</TextBlock>
         </StackPanel>
-
-        <TextBlock x:Name="highestScoreInHistory" HorizontalAlignment="Center"   FontSize="40" >历史最高分</TextBlock>
-    </StackPanel>
+    </Grid>
+    
 </Page>

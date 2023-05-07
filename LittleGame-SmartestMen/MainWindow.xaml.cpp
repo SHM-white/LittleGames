@@ -52,16 +52,6 @@ namespace winrt::LittleGame_SmartestMen::implementation
     void MainWindow::NavView_Loaded(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const & )
     {
         // You can also add items in code.
-        NavView().MenuItems().Append(muxc::NavigationViewItemSeparator());
-        muxc::NavigationViewItem navigationViewItem;
-        navigationViewItem.Content(winrt::box_value(L"My content"));
-        //navigationViewItem.Icon(wuxc::SymbolIcon(static_cast<wuxc::IconElement>(0xF1AD)));
-        navigationViewItem.Tag(winrt::box_value(L"content"));
-        NavView().MenuItems().Append(navigationViewItem);
-        m_pages.push_back(
-            std::make_pair<std::wstring, Windows::UI::Xaml::Interop::TypeName>(
-                L"content", winrt::xaml_typename<LittleGame_SmartestMen::MyContent>()));
-
         // Add handler for ContentFrame navigation.
         ContentFrame().Navigated({ this, &MainWindow::On_Navigated });
 
